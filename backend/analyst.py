@@ -4,8 +4,6 @@ import os
 import httpx
 import pandas as pd
 
-
-# Configure these in Render's Environment settings.
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
@@ -131,8 +129,7 @@ Rules:
     if not isinstance(plan, dict):
         raise RuntimeError("The AI plan must be a JSON object.")
 
-    # Fill omitted fields with safe defaults so a partially populated
-    # JSON response does not fail solely because an unused field is absent.
+
     defaults = {
         "operation": "describe",
         "column": "",
